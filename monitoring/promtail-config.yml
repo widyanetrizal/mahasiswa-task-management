@@ -1,0 +1,57 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  # Log docker container (semua)
+  # - job_name: docker
+  #   static_configs:
+  #     - targets: [localhost]
+  #       labels:
+  #         job: docker
+  #         __path__: /var/lib/docker/containers/*/*-json.log
+  #   pipeline_stages:
+  #     - docker: {}
+
+  # ===============================
+  # Semua container Docker
+  # ===============================
+  - job_name: docker-containers
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 10s
+    relabel_configs:
+      # Ambil nama container
+      - source_labels: ['__meta_docker_container_name']
+        regex: "/(.*)"
+        target_label: 'container_name'
+      - source_labels: [container_name]
+        regex: "(.+?)(-[0-9]+)?$"
+        target_label: container_name
+    pipeline_stages:
+      - docker: {}
+      # Ambil nama service dari docker-compose
+      - source_labels: ['__meta_docker_container_label_com_docker_compose_service']
+        target_label: 'service'
+      # Ambil nama project dari docker-compose
+      - source_labels: ['__meta_docker_container_label_com_docker_compose_project']
+        target_label: 'project'
+      # Path file log container
+      - source_labels: ['__meta_docker_container_log_path']
+        target_label: '__path__'
+  
+  # ===============================
+  # Log host Linux/Windows (opsional)
+  # ===============================
+  - job_name: varlogs
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: varlogs
+          __path__: /var/log/*.log
