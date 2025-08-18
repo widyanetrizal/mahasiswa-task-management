@@ -1,0 +1,9 @@
+@media (max-width: 576px) {
+  table {
+    font-size: 12px; /* font lebih kecil */
+  }
+  table td,
+  table th {
+    padding: 4px; /* padding lebih kecil */
+  }
+}
