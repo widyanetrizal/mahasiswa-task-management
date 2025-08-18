@@ -39,7 +39,7 @@ export default function GroupTaskCreate() {
 
     try {
       const res = await axios.post(
-        `http://localhost:80/groups/tasks/${groupId}`,
+        `${process.env.APP_URL}/groups/tasks/${groupId}`,
         form,
         {
           headers: {

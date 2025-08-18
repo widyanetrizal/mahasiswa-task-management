@@ -16,7 +16,7 @@ const TaskIndividu = () => {
   // Fetch hanya tugas yang tidak punya classId
   const fetchTasks = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:80/tasks/no-class", {
+      const res = await axios.get(`${process.env.APP_URL}/tasks/no-class`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
 
@@ -34,7 +34,7 @@ const TaskIndividu = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Yakin ingin menghapus tugas ini?")) return;
     try {
-      await axios.delete(`http://localhost:80/tasks/${id}`, {
+      await axios.delete(`${process.env.APP_URL}/tasks/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       fetchTasks();

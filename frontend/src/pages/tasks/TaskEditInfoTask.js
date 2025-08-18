@@ -19,7 +19,7 @@ const TaskEditInfoTask = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const res = await axios.get(`http://localhost:80/tasks/${id}`, {
+        const res = await axios.get(`${process.env.APP_URL}/tasks/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         const task = res.data;
@@ -50,7 +50,7 @@ const TaskEditInfoTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:80/tasks/${id}`, formData, {
+      await axios.put(`${process.env.APP_URL}/tasks/${id}`, formData, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       alert("✅ Tugas berhasil diperbarui");

@@ -27,7 +27,7 @@ const TaskEdit = () => {
     const fetchProgress = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:80/progress/task/individual/${taskId}`,
+          `${process.env.APP_URL}/progress/task/individual/${taskId}`,
           { headers: { Authorization: `Bearer ${user.token}` } }
         );
 
@@ -89,7 +89,7 @@ const TaskEdit = () => {
         );
 
         const response = await axios.put(
-          `http://localhost:80/progress/${progressId}`,
+          `${process.env.APP_URL}/progress/${progressId}`,
           formData,
           {
             headers: {
@@ -124,7 +124,7 @@ const TaskEdit = () => {
         );
 
         const response = await axios.put(
-          `http://localhost:80/progress/${progressId}/comment`,
+          `${process.env.APP_URL}/progress/${progressId}/comment`,
           formData,
           {
             headers: {

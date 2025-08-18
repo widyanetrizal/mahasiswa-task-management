@@ -12,7 +12,7 @@ const MyClasses = () => {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await axios.get("http://localhost:80/class/", {
+        const response = await axios.get(`${process.env.APP_URL}/class/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

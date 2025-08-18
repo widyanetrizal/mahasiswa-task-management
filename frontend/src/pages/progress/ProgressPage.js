@@ -18,7 +18,7 @@ const ProgressPage = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:8081/progress/user/${user.userId}`,
+        `${process.env.APP_URL}/progress/user/${user.userId}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

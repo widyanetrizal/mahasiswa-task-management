@@ -12,7 +12,7 @@ const UserList = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:80/users/", {
+      const response = await axios.get(`${process.env.APP_URL}/users/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +55,7 @@ const UserList = () => {
     try {
       await Promise.all(
         selected.map((id) =>
-          axios.delete(`http://localhost:80/users/${id}`, {
+          axios.delete(`${process.env.APP_URL}/users/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           })
         )

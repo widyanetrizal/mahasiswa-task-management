@@ -34,7 +34,7 @@ const DashboardLayout = () => {
 
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:80/users/profile", {
+        const res = await axios.get(`${process.env.APP_URL}/users/profile`, {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

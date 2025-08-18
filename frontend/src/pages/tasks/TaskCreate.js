@@ -39,7 +39,7 @@ const TaskCreate = () => {
 
     try {
       await axios.post(
-        "http://localhost:80/tasks/",
+        `${process.env.APP_URL}/tasks/`,
         form,
         {
           headers: {

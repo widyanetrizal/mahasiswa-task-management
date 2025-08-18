@@ -16,7 +16,7 @@ export default function GroupListPage() {
   const fetchGroups = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:80/groups/no-class", {
+      const res = await axios.get(`${process.env.APP_URL}/groups/no-class`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

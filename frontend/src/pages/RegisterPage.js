@@ -40,7 +40,7 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:80/users/register", form);
+      await axios.post(`${process.env.APP_URL}/users/register`, form);
       alert("Registrasi berhasil! Silakan login.");
       navigate("/login");
     } catch (err) {

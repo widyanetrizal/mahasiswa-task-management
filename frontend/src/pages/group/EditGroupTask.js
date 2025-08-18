@@ -19,7 +19,7 @@ export default function EditGroupTask() {
     async function fetchTask() {
       try {
         const res = await axios.get(
-          `http://localhost:80/groups/${groupId}/tasks/${taskId}`,
+          `${process.env.APP_URL}/groups/${groupId}/tasks/${taskId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -56,7 +56,7 @@ export default function EditGroupTask() {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:80/groups/${groupId}/tasks/${taskId}`,
+        `${process.env.APP_URL}/groups/${groupId}/tasks/${taskId}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

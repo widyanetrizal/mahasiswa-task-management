@@ -13,7 +13,7 @@ export default function GroupMemberAdd() {
     e.preventDefault();
     try {
       await axios.post(
-        `http://localhost:80/groups/${groupId}/addMember`,
+        `${process.env.APP_URL}/groups/${groupId}/addMember`,
         { email },
         {
           headers: { Authorization: `Bearer ${token}` },

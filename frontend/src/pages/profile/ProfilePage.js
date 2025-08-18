@@ -15,7 +15,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:80/users/profile", {
+        const res = await axios.get(`${process.env.APP_URL}/users/profile`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setProfile(res.data);
@@ -36,7 +36,7 @@ export default function ProfilePage() {
       }
 
       await axios.put(
-        "http://localhost:80/users/update",
+        `${process.env.APP_URL}/users/update`,
         { password: form.password },
         {
           headers: { Authorization: `Bearer ${user.token}` },

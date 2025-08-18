@@ -40,7 +40,7 @@ const TaskCreateClass = () => {
 
     try {
       await axios.post(
-        `http://localhost:80/tasks/${classId}`,
+        `${process.env.APP_URL}/tasks/${classId}`,
         {
           ...form,
           deadline: new Date(form.deadline).toISOString(), // konversi ke format ISO
