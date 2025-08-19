@@ -16,7 +16,7 @@ export default function NotificationPopup({ userId, token }) {
 
   console.log("NotificationPopup: userId =", userId);
 
-    const SOCKET_URL = process.env.APP_URL;
+    const SOCKET_URL = process.env.REACT_APP_API_URL;
 
     const socket = io(SOCKET_URL, {
       auth: { token }, // optional: pakai untuk handshake auth
@@ -48,7 +48,7 @@ export default function NotificationPopup({ userId, token }) {
   const markAsRead = async (id) => {
     try {
       await axios.put(
-        `${process.env.APP_URL}/notifications/${id}/read`,
+        `${process.env.REACT_APP_API_URL}/notifications/${id}/read`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -39,7 +39,7 @@ const CreateGroup = () => {
     try {
       // 1. Buat grup
       const createRes = await axios.post(
-        `${process.env.APP_URL}/groups/`,
+        `${process.env.REACT_APP_API_URL}/groups/`,
         {
           name: form.name,
         },
@@ -57,7 +57,7 @@ const CreateGroup = () => {
       for (const email of form.memberEmails) {
         try {
           await axios.post(
-            `${process.env.APP_URL}/groups/${newGroup.id}/addMember`,
+            `${process.env.REACT_APP_API_URL}/groups/${newGroup.id}/addMember`,
             { email },
             {
               headers: {

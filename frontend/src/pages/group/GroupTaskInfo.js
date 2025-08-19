@@ -22,7 +22,7 @@ const GroupTaskInfo = () => {
         // Ambil detail tugas dari group-task-service
         const taskRes = await axios.get(
           `
-          ${process.env.APP_URL}/groups/${groupId}/tasks/${taskId}`,
+          ${process.env.REACT_APP_API_URL}/groups/${groupId}/tasks/${taskId}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
@@ -31,7 +31,7 @@ const GroupTaskInfo = () => {
         // Ambil semua progress dari progress-service
         const progressRes = await axios.get(
           `
-          ${process.env.APP_URL}/progress/task/group/${taskId}`,
+          ${process.env.REACT_APP_API_URL}/progress/task/group/${taskId}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }

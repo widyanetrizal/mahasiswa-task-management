@@ -26,7 +26,7 @@ const GroupTaskEdit = () => {
     const fetchProgress = async () => {
       try {
         const res = await axios.get(
-          `${process.env.APP_URL}/progress/task/group/${taskId}`,
+          `${process.env.REACT_APP_API_URL}/progress/task/group/${taskId}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -93,7 +93,7 @@ const GroupTaskEdit = () => {
         );
 
         const response = await axios.put(
-          `${process.env.APP_URL}/progress/${progressId}`,
+          `${process.env.REACT_APP_API_URL}/progress/${progressId}`,
           formData,
           {
             headers: { Authorization: `Bearer ${user.token}` },
@@ -127,7 +127,7 @@ const GroupTaskEdit = () => {
         );
 
         const response = await axios.put(
-          `${process.env.APP_URL}/progress/${progressId}/comment`,
+          `${process.env.REACT_APP_API_URL}/progress/${progressId}/comment`,
           formData,
           {
             headers: {

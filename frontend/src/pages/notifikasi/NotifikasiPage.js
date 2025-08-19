@@ -14,7 +14,7 @@ const NotifikasiPage = () => {
     const fetchNotifications = async () => {
       try {
         const res = await axios.get(
-          `${process.env.APP_URL}/notifications/${user.userId}`,
+          `${process.env.REACT_APP_API_URL}/notifications/${user.userId}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
@@ -62,7 +62,7 @@ const NotifikasiPage = () => {
       await Promise.all(
         selected.map((id) =>
           axios.delete(
-            `${process.env.APP_URL}/notifications/${id}/${user.userId}`,
+            `${process.env.REACT_APP_API_URL}/notifications/${id}/${user.userId}`,
             {
               headers: { Authorization: `Bearer ${user.token}` },
             }

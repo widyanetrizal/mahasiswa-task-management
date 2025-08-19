@@ -29,7 +29,7 @@ const ClassMembers = ({ embedded = false, classId: propClassId, role: propRole }
     const fetchMembers = async () => {
       try {
         const res = await axios.get(
-          `${process.env.APP_URL}/class/${classId}/members`,
+          `${process.env.REACT_APP_API_URL}/class/${classId}/members`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMembers(res.data.members || []);
@@ -49,7 +49,7 @@ const ClassMembers = ({ embedded = false, classId: propClassId, role: propRole }
 
     try {
       await axios.delete(
-        `${process.env.APP_URL}/class/${classId}/students/${studentId}`,
+        `${process.env.REACT_APP_API_URL}/class/${classId}/students/${studentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMembers((prev) => prev.filter((m) => m.id !== studentId));
@@ -65,7 +65,7 @@ const ClassMembers = ({ embedded = false, classId: propClassId, role: propRole }
 
     try {
       const res = await axios.post(
-        `${process.env.APP_URL}/class/${classId}/students`,
+        `${process.env.REACT_APP_API_URL}/class/${classId}/students`,
         { emails: [newEmail] },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -75,7 +75,7 @@ const ClassMembers = ({ embedded = false, classId: propClassId, role: propRole }
 
       if (result.status === "berhasil ditambahkan") {
         const updated = await axios.get(
-          `${process.env.APP_URL}/class/${classId}/members`,
+          `${process.env.REACT_APP_API_URL}/class/${classId}/members`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMembers(updated.data.members);

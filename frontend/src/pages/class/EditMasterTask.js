@@ -19,7 +19,7 @@ export default function EditMasterTask() {
       try {
         const token = localStorage.getItem("token"); // ambil token
         const res = await axios.get(
-          `${process.env.APP_URL}/tasks/master/${masterTaskId}`,
+          `${process.env.REACT_APP_API_URL}/tasks/master/${masterTaskId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ export default function EditMasterTask() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `${process.env.APP_URL}/tasks/master/${masterTaskId}`,
+        `${process.env.REACT_APP_API_URL}/tasks/master/${masterTaskId}`,
         formData,
         {
           headers: {

@@ -26,7 +26,7 @@ const MahasiswaDashboard = () => {
       setLoadingClassCount(true);
       setError(null);
       try {
-        const res = await axios.get(`${process.env.APP_URL}/class/count`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/class/count`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data.success) setClassCount(res.data.count);
@@ -42,10 +42,10 @@ const MahasiswaDashboard = () => {
       setLoadingTaskCount(true);
       try {
         const [connectedRes, notConnectedRes] = await Promise.all([
-          axios.get(`${process.env.APP_URL}/tasks/count/connected`, {
+          axios.get(`${process.env.REACT_APP_API_URL}/tasks/count/connected`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${process.env.APP_URL}/tasks/count/not-connected`, {
+          axios.get(`${process.env.REACT_APP_API_URL}/tasks/count/not-connected`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -67,7 +67,7 @@ const MahasiswaDashboard = () => {
       setLoadingGroups(true);
       setError(null);
       try {
-        const res = await axios.get(`${process.env.APP_URL}/groups/my-groups`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/groups/my-groups`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data.success) setGroups(res.data.groups);

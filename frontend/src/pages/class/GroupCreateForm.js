@@ -17,7 +17,7 @@ const CreateGroup = () => {
     const fetchMembers = async () => {
       try {
         const res = await axios.get(
-          `${process.env.APP_URL}/class/${classId}/members`,
+          `${process.env.REACT_APP_API_URL}/class/${classId}/members`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -49,7 +49,7 @@ const CreateGroup = () => {
     try {
       // 1. Buat grup
       const createRes = await axios.post(
-        `${process.env.APP_URL}/groups/${classId}`,
+        `${process.env.REACT_APP_API_URL}/groups/${classId}`,
         {
           name: form.name,
         },
@@ -67,7 +67,7 @@ const CreateGroup = () => {
       for (const email of selectedMembers) {
         try {
           await axios.post(
-            `${process.env.APP_URL}/groups/${newGroup.id}/addMember`,
+            `${process.env.REACT_APP_API_URL}/groups/${newGroup.id}/addMember`,
             {
             //   groupId: newGroup.id,
               email

@@ -23,7 +23,7 @@ export default function GroupDetail() {
     const fetchGroup = async () => {
       try {
         const res = await axios.get(
-          `${process.env.APP_URL}/groups/${groupId}/details`,
+          `${process.env.REACT_APP_API_URL}/groups/${groupId}/details`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -57,7 +57,7 @@ export default function GroupDetail() {
   const deleteTask = async (taskId) => {
     const token = localStorage.getItem("token");
     if (window.confirm("Yakin hapus tugas ini?")) {
-      await axios.delete(`${process.env.APP_URL}/groups/${taskId}/task`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/groups/${taskId}/task`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter((t) => t.id !== taskId));
@@ -67,7 +67,7 @@ export default function GroupDetail() {
   const handleDeleteGroup = async () => {
     const token = localStorage.getItem("token");
     if (window.confirm("Yakin ingin hapus grup ini?")) {
-      await axios.delete(`${process.env.APP_URL}/groups/${groupId}/group`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/groups/${groupId}/group`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate("/dashboard/mahasiswa/task-kelompok");
@@ -78,7 +78,7 @@ export default function GroupDetail() {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.put(
-        `${process.env.APP_URL}/groups/${groupId}`,
+        `${process.env.REACT_APP_API_URL}/groups/${groupId}`,
         { name: newGroupName },
         { headers: { Authorization: `Bearer ${token}` } }
       );
