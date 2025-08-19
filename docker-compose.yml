@@ -730,21 +730,6 @@ services:
     networks:
       - app-network
 
-  cadvisor:
-    image: google/cadvisor
-    container_name: cadvisor
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    volumes:
-      # - /:/rootfs:ro
-      - ./monitoring:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    networks:
-      - app-network
-
   loki:
     image: grafana/loki
     container_name: loki
