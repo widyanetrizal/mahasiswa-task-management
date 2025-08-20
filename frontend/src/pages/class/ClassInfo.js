@@ -410,7 +410,7 @@ const AssignedTasksByMasterWrapper = ({ masterTaskId }) => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `http://localhost:8081/tasks/master/${masterTaskId}`,
+          `${process.env.REACT_APP_API_URL}/tasks/master/${masterTaskId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

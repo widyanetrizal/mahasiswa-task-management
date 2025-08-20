@@ -144,6 +144,7 @@ const createTask = async (req, res) => {
       });
 
       await publishToProgress(task.id, mhs.id, "Individual", dosenId, mhs.id);
+      
       await publishMessage("task.created", {
         service: "task-service",
         type: "task.created",

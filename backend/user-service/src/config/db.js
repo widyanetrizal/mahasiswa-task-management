@@ -16,8 +16,8 @@ async function checkMySQL() {
   try {
     const [rows] = await sequelize.query("SELECT 1");
     return "connected";
-  }catch (error) {
-    throw new Error ("MySQL not connected: " + error.message);
+  } catch (error) {
+    throw new Error("MySQL not connected: " + error.message);
   }
 }
 

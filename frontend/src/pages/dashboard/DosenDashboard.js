@@ -1,23 +1,3 @@
-// src/pages/dashboard/MahasiswaDashboard.js
-// import React from 'react';
-
-// const DosenDashboard = () => {
-//   return (
-//     <div>
-//       <h2>Selamat Datang Dosen</h2>
-//     </div>
-//   );
-// };
-
-// export default DosenDashboard;
-
-
-
-// ================================================================
-
-
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../auth/AuthContext";

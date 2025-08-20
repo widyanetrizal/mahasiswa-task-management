@@ -94,7 +94,6 @@ const getUserById = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
     res.json(user);
   } catch (error) {
     console.error("REGISTER ERROR:", error);
@@ -123,7 +122,6 @@ const getUserCountByRole = async (req, res) => {
     counts.forEach((item) => {
       result[item.role] = parseInt(item.count, 10);
     });
-
     res.json({
       success: true,
       counts: result,
@@ -217,7 +215,6 @@ const getUserByEmail = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User tidak ditemukan" });
     }
-
     res.json(user);
   } catch (err) {
     res.status(500).json({ error: err.message });

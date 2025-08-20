@@ -24,13 +24,7 @@ async function connectProgressPublisher() {
   }
 }
 
-async function publishToProgress(
-  taskId,
-  userId,
-  taskType,
-  createdBy,
-  assignedTo
-) {
+async function publishToProgress(taskId, userId, taskType, createdBy, assignedTo ) {
   const start = Date.now();
   try {
     if (!channel) await connectProgressPublisher();
