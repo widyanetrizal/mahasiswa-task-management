@@ -48,7 +48,7 @@ export default function NotificationPopup({ userId, token }) {
   const markAsRead = async (id) => {
     try {
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/notifications/${id}/read`,
+        `/notifications/${id}/read`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

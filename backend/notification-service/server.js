@@ -11,7 +11,8 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: `${process.env.APP_URL}`,
+    // origin: `${process.env.APP_URL}`,
+    origin: ["https://microtasker.my.id", "https://34.232.117.93"],
     methods: ["GET", "POST"],
     credentials: true
   },

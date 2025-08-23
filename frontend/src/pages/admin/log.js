@@ -12,7 +12,7 @@ const LoggingPage = () => {
 
   const fetchLogs = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/logs/`, {
+      const response = await axios.get(`/logs/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLogs(response.data);
@@ -35,7 +35,7 @@ const LoggingPage = () => {
       if (Array.isArray(ids)) {
         // === HAPUS BANYAK SECARA SEQUENTIAL AGAR AMAN ===
         for (const id of ids) {
-          await axios.delete(`${process.env.REACT_APP_API_URL}/logs/${id}`, {
+          await axios.delete(`/logs/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
         }
@@ -44,7 +44,7 @@ const LoggingPage = () => {
         setSelectedLogs([]);
       } else {
         // Hapus satuan
-        await axios.delete(`${process.env.REACT_APP_API_URL}/logs/${ids}`, {
+        await axios.delete(`/logs/${ids}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLogs((prev) => prev.filter((log) => log.id !== ids));

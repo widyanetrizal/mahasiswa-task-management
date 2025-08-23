@@ -37,7 +37,7 @@ const CreateClass = () => {
     try {
       // 1. Buat kelas
       const createRes = await axios.post(
-        `${process.env.REACT_APP_API_URL}/class/`,
+        `/class/`,
         {
           name: form.name,
           mataKuliah: form.mataKuliah,
@@ -54,7 +54,7 @@ const CreateClass = () => {
       // 2. Tambah mahasiswa jika ada
       if (form.anggotaEmails.length > 0) {
         await axios.post(
-          `${process.env.REACT_APP_API_URL}/class/${newClass.id}/students`,
+          `/class/${newClass.id}/students`,
           { emails: form.anggotaEmails },
           {
             headers: {

@@ -34,7 +34,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, form);
+      const res = await axios.post(`/users/login`, form);
       login({
         token: res.data.token,
         role: res.data.user.role,

@@ -12,7 +12,7 @@ const UserList = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/`, {
+      const response = await axios.get(`/users/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +55,7 @@ const UserList = () => {
     try {
       await Promise.all(
         selected.map((id) =>
-          axios.delete(`${process.env.REACT_APP_API_URL}/users/${id}`, {
+          axios.delete(`/users/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           })
         )

@@ -18,13 +18,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const SERVICES = [
-  { name: "User Service", url: `${process.env.REACT_APP_API_URL}/users/health` },
-  { name: "Class Service", url: `${process.env.REACT_APP_API_URL}/class/health` },
-  { name: "Task Service", url: `${process.env.REACT_APP_API_URL}/tasks/health` },
-  { name: "Group Task Service", url: `${process.env.REACT_APP_API_URL}/groups/health` },
-  { name: "Progress Service", url: `${process.env.REACT_APP_API_URL}/progress/health` },
-  { name: "Notification Service", url: `${process.env.REACT_APP_API_URL}/notifications/health` },
-  { name: "Logging Service", url: `${process.env.REACT_APP_API_URL}/logs/health` },
+  { name: "User Service", url: `/users/health` },
+  { name: "Class Service", url: `/class/health` },
+  { name: "Task Service", url: `/tasks/health` },
+  { name: "Group Task Service", url: `/groups/health` },
+  { name: "Progress Service", url: `/progress/health` },
+  { name: "Notification Service", url: `/notifications/health` },
+  { name: "Logging Service", url: `/logs/health` },
 ];
 
 const AdminDashboard = () => {
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
     const fetchUserCounts = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/users/count-by-role`, {
+        const res = await axios.get(`/users/count-by-role`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data.success) {

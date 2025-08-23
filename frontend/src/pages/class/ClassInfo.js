@@ -42,13 +42,13 @@ const ClassInfo = () => {
         setRole(payload.role);
 
         const [classRes, taskRes, groupRes] = await Promise.all([
-          axios.get(`${process.env.REACT_APP_API_URL}/class/${classId}`, {
+          axios.get(`/class/${classId}`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${process.env.REACT_APP_API_URL}/tasks/class/${classId}`, {
+          axios.get(`/tasks/class/${classId}`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${process.env.REACT_APP_API_URL}/groups/class/${classId}`, {
+          axios.get(`/groups/class/${classId}`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -72,7 +72,7 @@ const ClassInfo = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        `${process.env.REACT_APP_API_URL}/class/${classId}`,
+        `/class/${classId}`,
         { name: updateName, mataKuliah: updateMataKuliah },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -89,7 +89,7 @@ const ClassInfo = () => {
     if (!window.confirm("Yakin ingin menghapus kelas ini?")) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${process.env.REACT_APP_API_URL}/class/${classId}`, {
+      await axios.delete(`/class/${classId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Kelas berhasil dihapus.");
@@ -104,7 +104,7 @@ const ClassInfo = () => {
     if (!window.confirm(`Yakin ingin menghapus tugas "${judul}"?`)) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${process.env.REACT_APP_API_URL}/tasks/master/${taskId}`, {
+      await axios.delete(`/tasks/master/${taskId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter((t) => t.id !== taskId));
@@ -410,7 +410,7 @@ const AssignedTasksByMasterWrapper = ({ masterTaskId }) => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/tasks/master/${masterTaskId}`,
+          `/tasks/master/${masterTaskId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

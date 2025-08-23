@@ -18,13 +18,13 @@ const TaskInfo = () => {
   useEffect(() => {
     const fetchTaskAndProgress = async () => {
       try {
-        const taskRes = await axios.get(`${process.env.REACT_APP_API_URL}/tasks/${id}`, {
+        const taskRes = await axios.get(`/tasks/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setTask(taskRes.data);
 
         const progressRes = await axios.get(
-          `${process.env.REACT_APP_API_URL}/progress/task/individual/${id}`,
+          `/progress/task/individual/${id}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }

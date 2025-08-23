@@ -39,7 +39,7 @@ const TaskCreate = () => {
 
     try {
       await axios.post(
-        `${process.env.REACT_APP_API_URL}/tasks/`,
+        `/tasks/`,
         form,
         {
           headers: {

@@ -18,7 +18,7 @@ const ProgressPage = () => {
       }
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/user/${user.userId}`,
+        `/progress/user/${user.userId}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
