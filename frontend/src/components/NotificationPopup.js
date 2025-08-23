@@ -16,9 +16,9 @@ export default function NotificationPopup({ userId, token }) {
 
   console.log("NotificationPopup: userId =", userId);
 
-    const SOCKET_URL = process.env.REACT_APP_API_URL;
+    // const SOCKET_URL = process.env.REACT_APP_API_URL;
 
-    const socket = io(SOCKET_URL, {
+    const socket = io("https://microtasker.my.id/", {
       auth: { token }, // optional: pakai untuk handshake auth
       reconnectionAttempts: 5,
     });

@@ -62,13 +62,7 @@ const TaskIndividu = () => {
 
       <div className="table-responsive-sm">
         <table
-          className="table table-striped table-bordered align-middle mb-0 w-100"
-          style={{
-            tableLayout: "fixed",
-            width: "100%",
-            wordWrap: "break-word",
-            whiteSpace: "normal",
-          }}
+          className="table table-bordered table-striped align-middle"
         >
           <thead className="table-light text-center table align-middle">
             {/* <Table striped bordered hover>
